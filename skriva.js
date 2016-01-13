@@ -54,7 +54,7 @@ $('#myinput').on("input", function() {
     if ( myInput.length === myWord.length && myInput === myWord) {
         $('#inputArea').addClass('hidden');
         $('div#success--box').removeClass('hidden');
-        $('p#success--box--word').text(myWord);
+        $('h2#success--box--word').text(myWord);
         $('body').addClass('allGreen');
         audioElement.play();
         $.wait(3000).then(function() {
