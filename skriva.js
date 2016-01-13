@@ -19,11 +19,12 @@ function init() {
 function reset() {
     $('#braGjort').addClass('hidden');
     $('input[type=text]').val('');
-    $('#muinput').empty();
+    $('#myinput').empty();
     $('#myword').empty();
     $('#result').empty();
     $('#inputArea').removeClass('hidden');
     $('body').removeClass('allGreen');
+    $('#myinput').focus();
 }
 
 function generateWord() {
