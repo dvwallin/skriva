@@ -17,7 +17,7 @@ function init() {
 }
 
 function reset() {
-    $('#braGjort').addClass('hidden');
+    $('div#success--box').addClass('hidden');
     $('input[type=text]').val('');
     $('#myinput').empty();
     $('#myword').empty();
@@ -53,8 +53,8 @@ $('#myinput').on("input", function() {
     }
     if ( myInput.length === myWord.length && myInput === myWord) {
         $('#inputArea').addClass('hidden');
-        $('#braGjort').removeClass('hidden');
-        $('#braGjortWord').text(myWord);
+        $('div#success--box').removeClass('hidden');
+        $('p#success--box--word').text(myWord);
         $('body').addClass('allGreen');
         audioElement.play();
         $.wait(3000).then(function() {
