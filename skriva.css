@@ -1,0 +1,13 @@
+#myword, #result {
+    font-size: 600%;
+    letter-spacing: 0.5em;
+}
+#braGjort {
+    font-size: 1000%;
+}
+.hidden {
+    display: none;
+}
+.allGreen {
+    background: #b9f6ca;
+}
