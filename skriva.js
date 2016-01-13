@@ -53,6 +53,7 @@ $('#myinput').on("input", function() {
     if ( myInput.length === myWord.length && myInput === myWord) {
         $('#inputArea').addClass('hidden');
         $('#braGjort').removeClass('hidden');
+        $('#braGjortWord').text(myWord);
         $('body').addClass('allGreen');
         audioElement.play();
         $.wait(3000).then(function() {
