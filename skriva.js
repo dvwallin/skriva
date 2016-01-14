@@ -14,10 +14,11 @@ function init() {
     }
     $.session.set('lastWord', word);
     $('#myword').text( word.toUpperCase() );
+    $('#mywordimg').html('<img src="imgs/'+word+'.jpg" />');
 }
 
 function reset() {
-    $('#braGjort').addClass('hidden');
+    $('div#success--box').addClass('hidden');
     $('input[type=text]').val('');
     $('#myinput').empty();
     $('#myword').empty();
@@ -28,11 +29,11 @@ function reset() {
 }
 
 function generateWord() {
-    var words = new Array("katt", "hund", "apa", "fågel", "hamster", "marsvin", "uggla", "råtta", "mus", "snigel", "piggsvin", "lurifax", "tiger", "lejon", "leopard", "björn");
+    var words = new Array("apa", "elefant", "fågel", "hund", "katt", "lejon", "råtta", "snigel", "spindel", "tiger", "uggla");
     randno = words[Math.floor( Math.random() * words.length )];
     return randno;
 }
-
+// Yes!
 $('#myinput').on("input", function() {
     var myWord = $('#myword').text().toUpperCase();
     var myInput = this.value.toUpperCase();
@@ -53,8 +54,9 @@ $('#myinput').on("input", function() {
     }
     if ( myInput.length === myWord.length && myInput === myWord) {
         $('#inputArea').addClass('hidden');
-        $('#braGjort').removeClass('hidden');
-        $('#braGjortWord').text(myWord);
+        $('div#success--box').removeClass('hidden');
+        $('h1#success--box--word').text(myWord);
+        $('div#success--box--img').html('<img src="imgs/'+myWord.toLowerCase()+'.jpg" />');
         $('body').addClass('allGreen');
         audioElement.play();
         $.wait(3000).then(function() {
