@@ -13,7 +13,7 @@ function init() {
         while ( word == $.session.get('lastWord') )
     }
     $.session.set('lastWord', word);
-    $('#myword').text( word.toLowerCase() );
+    $('#myword').text( word.toUpperCase() );
 }
 
 function reset() {
@@ -34,8 +34,8 @@ function generateWord() {
 }
 
 $('#myinput').on("input", function() {
-    var myWord = $('#myword').text().toLowerCase();
-    var myInput = this.value.toLowerCase();
+    var myWord = $('#myword').text().toUpperCase();
+    var myInput = this.value.toUpperCase();
     var reg = new RegExp("/^"+myInput+"/i");
     var pos = myInput.length - 1;
     var len = myInput.length;
