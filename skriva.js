@@ -32,7 +32,7 @@ function generateWord() {
     randno = words[Math.floor( Math.random() * words.length )];
     return randno;
 }
-
+// Yes!
 $('#myinput').on("input", function() {
     var myWord = $('#myword').text().toUpperCase();
     var myInput = this.value.toUpperCase();
