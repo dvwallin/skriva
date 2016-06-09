@@ -29,7 +29,7 @@ function reset() {
 }
 
 function generateWord() {
-    var words = new Array("apa", "elefant", "fågel", "hund", "katt", "lejon", "råtta", "snigel", "spindel", "tiger", "uggla");
+    var words = new Array("apa", "elefant", "fågel", "hund", "katt", "lejon", "råtta", "snigel", "spindel", "tiger", "uggla", "penna", "ko", "sol", "måne", "dator", "bil", "buss", "äpple");
     randno = words[Math.floor( Math.random() * words.length )];
     return randno;
 }
@@ -62,7 +62,7 @@ $('#myinput').on("input", function() {
         $.wait(3000).then(function() {
             console.log($.session.get('stars'));
             reset();
-            init();   
+            init();
         });
     }
 });
