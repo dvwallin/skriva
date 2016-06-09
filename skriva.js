@@ -13,6 +13,9 @@ function init() {
         while ( word == $.session.get('lastWord') )
     }
     $.session.set('lastWord', word);
+	var audioElement = document.createElement('audio');
+	audioElement.setAttribute('src', 'sounds/' + word + '.mp3');
+	audioElement.play();
     $('#myword').text( word.toUpperCase() );
     $('#mywordimg').html('<img src="imgs/'+word+'.jpg" />');
 }
