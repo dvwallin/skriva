@@ -16,7 +16,16 @@ function init() {
 	var audioElement = document.createElement('audio');
 	audioElement.setAttribute('src', 'sounds/' + word + '.mp3');
 	audioElement.play();
-    $('#myword').text( word.toUpperCase() );
+
+	var newWord = "";
+
+	for (var x = 0; x < word.length; x++)
+	{
+	    var c = word.charAt(x);
+		newWord = newWord + "<span id='cc-"+x+"'>"+ c.toUpperCase() +"</span>";
+	}
+
+    $('#myword').html( newWord );
     $('#mywordimg').html('<img src="imgs/'+word+'.jpg" />');
 }
 
@@ -46,27 +55,42 @@ $('#myinput').on("input", function() {
     var letterInWord = myWord.substring(0, len);
     var letterInInput = myInput.substring(0, len);
     var audioElement = document.createElement('audio');
-    audioElement.setAttribute('src', 'yay.wav');
     if ( letterInInput != "" ) {
         if ( letterInInput === letterInWord ) {
+			var lastChar = letterInWord.substr(letterInWord.length - 1);
+			audioElement.setAttribute('src', 'chars/' + lastChar.toLowerCase() + '.mp3');
+			audioElement.play();
             $('#result').text(letterInInput);
-        }
+        } else {
+	       $('body').addClass("bigNoNoBG");
+		   $('#cc-' + pos).addClass("bigNoNoChar");
+			setTimeout(function() {
+		       $('body').removeClass("bigNoNoBG");
+			   $('#cc-' + pos).removeClass("bigNoNoChar");
+		   }, 650);
+		   $('#myinput').val($('#result').text());
+		}
     }
     if ( len == 0 || letterInInput == "" ) {
         $('#result').empty();
     }
     if ( myInput.length === myWord.length && myInput === myWord) {
-        $('#inputArea').addClass('hidden');
-        $('div#success--box').removeClass('hidden');
-        $('h1#success--box--word').text(myWord);
-        $('div#success--box--img').html('<img src="imgs/'+myWord.toLowerCase()+'.jpg" />');
-        $('body').addClass('allGreen');
-        audioElement.play();
-        $.wait(3000).then(function() {
-            console.log($.session.get('stars'));
-            reset();
-            init();
-        });
+		setTimeout(
+			function()
+			{
+				audioElement.setAttribute('src', 'yay.wav');
+				$('#inputArea').addClass('hidden');
+				$('div#success--box').removeClass('hidden');
+				$('h1#success--box--word').text(myWord);
+				$('div#success--box--img').html('<img src="imgs/'+myWord.toLowerCase()+'.jpg" />');
+				$('body').addClass('allGreen');
+				audioElement.play();
+				$.wait(3000).then(function() {
+				    console.log($.session.get('stars'));
+				    reset();
+				    init();
+				});
+			}, 850);
     }
 });
 
