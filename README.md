@@ -7,3 +7,5 @@ All words are Swedish.
 * Clone repo
 * Open index.html in your browser
 
+## Skapare
+Familjen Wallin
