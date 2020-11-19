@@ -6,6 +6,9 @@
     letter-spacing: 0.5em;
     min-height: 135px;
 }
+#myword > span {
+  padding-left: 45px;
+}
 .hidden {
     display: none;
 }
@@ -25,4 +28,11 @@
 }
 .bigNoNoChar {
 	color: red;
+}
+.circle {
+    background: lightblue;
+    border-radius: 50%;
+    width: 100px;
+    height: 100px;
+    padding-left: 45px;
 }
