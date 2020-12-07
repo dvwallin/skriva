@@ -22,7 +22,7 @@ function init() {
 	for (var x = 0; x < word.length; x++)
 	{
 	    var c = word.charAt(x);
-		newWord = newWord + "<span id='cc-"+x+"'>"+ c.toUpperCase() +"</span>";
+		newWord = newWord + "<span id='cc-"+x+"'>"+ c.toLowerCase() +"</span>";
 	}
 
     $('#myword').html( newWord );
@@ -54,8 +54,8 @@ function resetCircle(word) {
 }
 // Yes!
 $('#myinput').on("input", function() {
-    var myWord = $('#myword').text().toUpperCase();
-    var myInput = this.value.toUpperCase();
+    var myWord = $('#myword').text().toLowerCase();
+    var myInput = this.value.toLowerCase();
     var reg = new RegExp("/^"+myInput+"/i");
     var pos = myInput.length - 1;
     var len = myInput.length;
